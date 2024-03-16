@@ -1,13 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
-use App\Http\Controllers\Auth\LoginController;
-
-Route::get('login/google', [LoginController::class, 'redirectToGoogle']);
-Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-
-Route::post('/chat', [ChatController::class, 'sendChatRequest']);
 
 /*
 |--------------------------------------------------------------------------
