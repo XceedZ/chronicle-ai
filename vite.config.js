@@ -3,7 +3,7 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-        outDir: 'build', // Tentukan direktori output di sini
+        outDir: 'dist', // Tentukan direktori output di sini
     },
     plugins: [
         laravel({
