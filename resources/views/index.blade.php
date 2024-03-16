@@ -142,7 +142,7 @@ window.addEventListener('load', adjustChatContainer);
                 messageContainer.appendChild(userProfile);
 
                 var messageContent = document.createElement('div');
-                messageContent.className = 'message';
+                messageContent.className = 'message';   
                 messageContent.textContent = userInput;
                 messageContainer.appendChild(messageContent);
 
