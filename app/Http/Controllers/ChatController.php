@@ -5,22 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
-class OpenAIController extends Controller
+class ChatController extends Controller
 {
     public function sendChatRequest(Request $request)
     {
         $userInput = $request->input('user_input');
-        $apiKey = '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'; // Ganti dengan kunci API Anda
+        $apiKey = 'AIzaSyBeikCNyjgNjgoDpW0d_8ICM1dW2b2hjnw'; // Ganti dengan kunci API Anda dari Gemini
 
         $client = new Client();
 
-        $response = $client->post('https://api.openai.com/v1/chat/completions', [
+        $response = $client->post('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBeikCNyjgNjgoDpW0d_8ICM1dW2b2hjnw', [
             'headers' => [
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer ' . $apiKey,
             ],
             'json' => [
-                'model' => 'gpt-3.5-turbo-0613',  // Sesuaikan dengan model yang ingin Anda gunakan
+                'model' => 'gemini-1.0-pro',  // Ganti dengan nama model yang ingin Anda gunakan
                 'messages' => [
                     ['role' => 'system', 'content' => 'You are a helpful assistant.'],
                     ['role' => 'user', 'content' => $userInput],
