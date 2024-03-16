@@ -260,8 +260,7 @@ input:focus {
     .chat {
         justify-content: center;
         align-items: center;       
-        margin: 0 auto; /* Menggunakan margin otomatis */
-        height: 600px;
+        margin: -20px auto; /* Menggunakan margin otomatis */
         max-width: 100%; /* Atur lebar maksimum */
     }
 

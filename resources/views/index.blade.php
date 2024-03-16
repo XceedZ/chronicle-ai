@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronicle AI</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">  
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">  
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +56,33 @@
         </div>
 
         <script>
+      function adjustChatContainer() {
+    var chatContainer = document.querySelector('.chat');
+    var inputContainer = document.querySelector('.input-container');
+    var windowHeight = window.innerHeight;
+    var inputContainerHeight = inputContainer.offsetHeight;
+    var keyboardHeight = windowHeight - (window.innerHeight - window.innerHeight/3); // Misalnya, Anda dapat mengurangi setengah dari tinggi window saat keyboard muncul
+
+    // Jika keyboard muncul, kurangi tinggi chat container
+    if (keyboardHeight > 0) {
+        chatContainer.style.height = windowHeight - inputContainerHeight - keyboardHeight + 'px';
+    } else {
+        // Jika keyboard tidak muncul, kembalikan tinggi chat container ke tinggi aslinya
+        chatContainer.style.height = windowHeight - inputContainerHeight + 'px';
+    }
+
+    // Aktifkan scroll otomatis pada chat container
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Panggil fungsi adjustChatContainer() ketika keyboard muncul atau disembunyikan
+window.addEventListener('resize', adjustChatContainer);
+
+// Panggil fungsi adjustChatContainer() saat halaman dimuat
+window.addEventListener('load', adjustChatContainer);
+
+
+
             
             document.getElementById('user-input').addEventListener('keydown', function (event) {
                 // Periksa apakah tombol yang ditekan adalah tombol "Enter" (kode 13)
